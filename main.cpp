@@ -24,7 +24,7 @@ char **charSquare(int n)
 	// FILLING
 	for(int i = 0 ; i < n * n ; i++)
 	{
-		*((char*)square + i) = rand() % 26 + 97;
+		square[i/n][i%n] = rand() % 26 + 97;
 	}
 
 	return square;
@@ -35,7 +35,7 @@ void drawCharSquare(char **square, int n)
 	// DRAWING
 	for(int i = 0 ; i < n * n ; i++)
 	{
-		((i + 1) % n) ? printf("%c", *((char*)square + i)) : printf("%c \n", *((char*)square + i));
+		((i + 1) % n) ? printf("%c ", square[i/n][i%n]) : printf("%c \n", square[i/n][i%n]);
 	}
 
 	// DESTRUCTION
